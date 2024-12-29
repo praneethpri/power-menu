@@ -1,5 +1,5 @@
 import customtkinter
-import subprocess, sys
+import subprocess
 
 def main():
     customtkinter.set_appearance_mode('light')
@@ -11,10 +11,16 @@ def main():
     root.grid_rowconfigure(0, weight=1, minsize=50)
     root.grid_columnconfigure(0, weight=1)
     root.grid_columnconfigure(1, weight=1)
-    button_shutdown = customtkinter.CTkButton(master=root, text='Shutdown')
+    button_shutdown = customtkinter.CTkButton(master=root, text='Shutdown', command=shutdown_process)
     button_shutdown.grid(row=0, column=0, padx=1, pady=1)
     button_restart = customtkinter.CTkButton(master=root, text='Restart')
     button_restart.grid(row=0, column=1, padx=1, pady=1)
     root.mainloop()
+
+def shutdown_process():
+    subprocess.run("echo 'hello'", shell=True)
+
+def restart_process():
+    subprocess.run("sudo reboot", shell=True)
 
 main()
