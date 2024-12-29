@@ -1,4 +1,5 @@
 import customtkinter
+import subprocess, sys
 
 def main():
     customtkinter.set_appearance_mode('light')
