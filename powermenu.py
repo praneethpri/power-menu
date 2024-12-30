@@ -1,5 +1,7 @@
+from tkinter import PhotoImage
 import customtkinter
 import subprocess
+from PIL import Image, ImageTk
 
 def main():
     customtkinter.set_appearance_mode('light')
@@ -11,9 +13,13 @@ def main():
     root.grid_rowconfigure(0, weight=1, minsize=50)
     root.grid_columnconfigure(0, weight=1)
     root.grid_columnconfigure(1, weight=1)
-    button_shutdown = customtkinter.CTkButton(master=root, text='Shutdown', command=shutdown_process)
+
+    image_shutdown = customtkinter.CTkImage(light_image=Image.open('./assets/shutdown-button.jpg'), dark_image=Image.open('./assets/shutdown-button.jpg'), size=(150, 150))
+    image_restart = customtkinter.CTkImage(light_image=Image.open('./assets/restart-button.jpg'), dark_image=Image.open('./assets/restart-button.jpg'),size=(150, 150))
+
+    button_shutdown = customtkinter.CTkButton(master=root, image=image_shutdown, command=shutdown_process, text='Shutdown')
     button_shutdown.grid(row=0, column=0, padx=1, pady=1)
-    button_restart = customtkinter.CTkButton(master=root, text='Restart')
+    button_restart = customtkinter.CTkButton(master=root, image=image_restart, text='Restart')
     button_restart.grid(row=0, column=1, padx=1, pady=1)
     root.mainloop()
 
@@ -23,4 +29,5 @@ def shutdown_process():
 def restart_process():
     subprocess.run("sudo reboot", shell=True)
 
-main()
+if __name__ == "__main__":
+    main()
