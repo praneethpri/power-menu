@@ -17,9 +17,9 @@ def main():
     image_shutdown = customtkinter.CTkImage(light_image=Image.open('./assets/shutdown-button.jpg'), dark_image=Image.open('./assets/shutdown-button.jpg'), size=(150, 150))
     image_restart = customtkinter.CTkImage(light_image=Image.open('./assets/restart-button.jpg'), dark_image=Image.open('./assets/restart-button.jpg'),size=(150, 150))
 
-    button_shutdown = customtkinter.CTkButton(master=root, image=image_shutdown, command=shutdown_process, text='Shutdown')
+    button_shutdown = customtkinter.CTkButton(master=root, image=image_shutdown, command=shutdown_process, text='', fg_color="transparent", hover_color="#551ae5")
     button_shutdown.grid(row=0, column=0, padx=1, pady=1)
-    button_restart = customtkinter.CTkButton(master=root, image=image_restart, text='Restart')
+    button_restart = customtkinter.CTkButton(master=root, image=image_restart, text='', fg_color="transparent", hover_color="#551ae5")
     button_restart.grid(row=0, column=1, padx=1, pady=1)
     root.mainloop()
 
