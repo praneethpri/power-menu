@@ -24,7 +24,7 @@ def main():
     root.mainloop()
 
 def shutdown_process():
-    subprocess.run("echo 'hello'", shell=True)
+    subprocess.run("sudo poweroff", shell=True)
 
 def restart_process():
     subprocess.run("sudo reboot", shell=True)
