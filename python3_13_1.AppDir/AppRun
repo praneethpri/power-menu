@@ -1,1 +1,5 @@
-.././python3_13_1.AppImage
+#!/bin/bash
+
+export PYTHONPATH=$APPDIR/Power-Options-Program/dependencies:$PYTHONPATH
+
+$APPDIR/usr/bin/python3 $APPDIR/Power-Options-Program/powermenu.py
